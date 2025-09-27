@@ -1,11 +1,10 @@
 import "./App.css";
-import Todolist from "./components/Todolist.tsx";
+import ContextPage from "./components/ContextPage";
 
-//export default function App(): Element {
 export default function App() {
   return (
     <>
-      <Todolist />
+      <ContextPage />
     </>
   );
 }
