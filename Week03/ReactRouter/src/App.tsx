@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Layouts/RootLayout";
 import MoviesPage from "./Pages/MoviesPage";
 import HomePage from "./Pages/HomePage";
+import MovieDetailPage from "./Pages/MovieDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: ":category",
         element: <MoviesPage />,
+      },
+      {
+        path: ":category/:movieid",
+        element: <MovieDetailPage />,
       },
     ],
   },

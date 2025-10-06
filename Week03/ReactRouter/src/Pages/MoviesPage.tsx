@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import type { Movie, MovieResponse } from "../types/movie";
 import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [page, setPage] = useState(1);
+  const navigate = useNavigate();
 
   const { category } = useParams<{
     category: string;
@@ -67,7 +68,11 @@ export default function MoviesPage() {
       ) : (
         <div className="m-10 py-5 px-10 grid grid-cols-5 gap-10">
           {movies.map((movie) => (
-            <div key={movie.id} className="relative group">
+            <div
+              key={movie.id}
+              className="relative group"
+              onClick={() => navigate(`/${category}/${movie.id}`)}
+            >
               {movie.poster_path && (
                 <>
                   <img
