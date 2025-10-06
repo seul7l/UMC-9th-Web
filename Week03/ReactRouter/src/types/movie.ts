@@ -1,3 +1,10 @@
+export type MovieResponse = {
+  page: number;
+  dates: DateRange;
+  results: Movie[];
+  total_pages: number;
+  total_results: number;
+};
 export type Movie = {
   id: number;
   title: string;
@@ -5,13 +12,13 @@ export type Movie = {
   popularity: number;
   poster_path: string;
   release_date: string;
-  vote_average: number;
   count: number;
+  backdrop_path: string;
+  original_title: string;
+  vote_average: number;
 };
 
-export type MovieResponse = {
-  page: number;
-  results: Movie[];
-  total_pages: number;
-  total_results: number;
+export type DateRange = {
+  maximum: string;
+  minimum: string;
 };

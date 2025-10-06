@@ -4,7 +4,7 @@ import axios from "axios";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useParams } from "react-router-dom";
 
-export default function UpcomingPage() {
+export default function MoviesPage() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -28,8 +28,7 @@ export default function UpcomingPage() {
           `https://api.themoviedb.org/3/movie/${category}?&language=en-US&page=${page}`,
           {
             headers: {
-              Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwOWEzODg5MTY5MGI0NTNhZmY2NGEwMzI0YjkyNDgxNSIsIm5iZiI6MTc1OTQyMTAxOC4yODQsInN1YiI6IjY4ZGVhMjVhZDg3M2M0YmEyMTZhNzk1MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wLJhZd0FnpmZ3zgjHMMOKpac0hhGwGFF0uR_8nBrmpw",
+              Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
               accept: "application/json",
             },
           }
